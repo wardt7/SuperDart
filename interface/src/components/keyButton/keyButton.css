@@ -1,0 +1,50 @@
+.btn-wrapper {
+    height: 4em;
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    font-weight: lighter;
+    font-size: 1.8em;
+    outline: 1px solid #888;
+    flex: 1 1 0;
+    width: 100%;
+}
+
+.green {
+    background-color: #02EB61;
+    color: black;
+    height: 8.2em;
+}
+
+.green:hover{
+    background-color: #42F477;
+}
+
+.red {
+    background-color: #EB0202;
+    color: white;
+    height: 8.2em;
+}
+
+.red:hover{
+    background-color: #FF2D2D;
+}
+
+.playerone {
+    background-color: #FE9241;
+    color: white;
+}
+
+.playerone:hover{
+    background-color: #ED7728;
+}
+
+.playertwo {
+    background-color: #0273EB;
+    color: white;
+}
+
+.playertwo:hover{
+    background-color: #42A7F4;
+}
