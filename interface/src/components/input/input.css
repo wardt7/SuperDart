@@ -1,0 +1,26 @@
+.input {
+    display: flex;
+    margin: 0;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    justify-content: left;
+    align-items: center;
+    font-weight: boldr;
+    font-size: 3.5em;
+    outline: 1px solid #888;
+    flex: 1 1 0;
+    width: 100%;
+    min-height: 2.25em;
+}
+
+.input.playerone {
+    background-color: #ED7728;
+    color: white;
+}
+
+.input.playertwo {
+    background-color: #42A7F4;
+    color: white;
+}
+    

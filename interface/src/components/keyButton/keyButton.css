@@ -11,40 +11,40 @@
     width: 100%;
 }
 
-.green {
+.btn-wrapper.green {
     background-color: #02EB61;
     color: black;
     height: 8.2em;
 }
 
-.green:hover{
+.btn-wrapper.green:hover{
     background-color: #42F477;
 }
 
-.red {
+.btn-wrapper.red {
     background-color: #EB0202;
     color: white;
     height: 8.2em;
 }
 
-.red:hover{
+.btn-wrapper.red:hover{
     background-color: #FF2D2D;
 }
 
-.playerone {
+.btn-wrapper.playerone {
     background-color: #FE9241;
     color: white;
 }
 
-.playerone:hover{
+.btn-wrapper.playerone:hover{
     background-color: #ED7728;
 }
 
-.playertwo {
+.btn-wrapper.playertwo {
     background-color: #0273EB;
     color: white;
 }
 
-.playertwo:hover{
+.btn-wrapper.playertwo:hover{
     background-color: #42A7F4;
 }

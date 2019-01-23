@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import KeyButton from "../keyButton/keyButton"
+import Input from "../input/input"
 import "./keypad.css"
 
 class Keypad extends Component{
@@ -12,6 +13,9 @@ class Keypad extends Component{
 		<div className="keypad">
 		<table width="100%">
 		<tbody>
+		<tr>
+		<td colspan="4"><Input turn={this.props.turn}>{this.props.input}</Input></td>
+		</tr>
 		<tr>
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>7</KeyButton></td>
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>8</KeyButton></td>

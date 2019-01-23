@@ -79,7 +79,7 @@ class App extends Component {
     render() {
 	return (
 		<div>
-		<Keypad turn={this.state.turn} removeFromInput={this.removeFromInput} appendToInput={this.appendToInput} enterScore={this.enterScore} />
+		<Keypad turn={this.state.turn} input={this.state.input} removeFromInput={this.removeFromInput} appendToInput={this.appendToInput} enterScore={this.enterScore} />
 		</div>
 	)
     }
