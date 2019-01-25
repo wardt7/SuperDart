@@ -11,6 +11,16 @@
     width: 100%;
 }
 
+.btn-wrapper:not(:hover), .btn-wrapper.disabled:hover{
+    /* Animations are played on colour change except when currently hovering over enabled buttons */
+    -webkit-transition-property: background-color;
+    -webkit-transition-duration: 0.75s;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
+}
+
 .btn-wrapper.ENT, .btn-wrapper.REDO {
     background-color: #02EB61;
     color: black;
@@ -69,3 +79,4 @@
 .btn-wrapper.playertwo:hover{
     background-color: #42A7F4;
 }
+

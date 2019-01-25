@@ -12,6 +12,12 @@
     flex: 1 1 0;
     width: 100%;
     min-height: 2.25em;
+    -webkit-transition-property: background-color;
+    -webkit-transition-duration: 0.75s;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
 }
 
 .input.playerone {
