@@ -18,6 +18,8 @@ class App extends Component {
 	this.appendToInput = this.appendToInput.bind(this)
 	this.removeFromInput = this.removeFromInput.bind(this)
 	this.enterScore = this.enterScore.bind(this)
+	this.undoScore = this.undoScore.bind(this)
+	this.redoScore = this.redoScore.bind(this)
 	this.calculateScore = this.calculateScore.bind(this)
     }
     appendToInput(value){
@@ -50,16 +52,46 @@ class App extends Component {
 	let score = this.calculateScore(this.state.evalInput)
 	if(this.state.turn % 2 === 0){
 	    let newList = this.state.playerOneScores
-	    if(newList.length === this.state.playerOneIndex+1){
+	    if(newList.length === this.state.playerOneIndex + 1){
 		newList.push(score)
+	    } else {
+		newList[this.state.playerOneIndex + 1] = score
 	    }
 	    this.setState({ playerOneScores: newList, playerOneIndex: this.state.playerOneIndex + 1})
 	} else {
 	    let newList = this.state.playerTwoScores
-	    newList.push(score)
+	    if(newList.length === this.state.playerTwoIndex + 1){
+		newList.push(score)
+	    } else {
+		newList[this.state.playerTwoIndex + 1] = score
+	    }
 	    this.setState({ playerTwoScores: newList, playerTwoIndex: this.state.playerTwoIndex + 1})
 	}
 	this.setState({ input: "", evalInput: "", turn: this.state.turn + 1})
+    }
+    undoScore(){
+	// Check the OTHER player's index, as that's what we're updating, NOT the current player's
+	if(this.state.turn % 2 === 0){
+	    if(this.state.playerTwoIndex > 0){
+		this.setState({ playerTwoIndex: this.state.playerTwoIndex - 1, turn: this.state.turn - 1, input: "", evalInput: ""})
+	    }
+	} else {
+	    if(this.state.playerOneIndex > 0){
+		this.setState({ playerOneIndex: this.state.playerOneIndex - 1, turn: this.state.turn - 1, input: "", evalInput: ""})
+	    }
+	}
+    }
+    redoScore(){
+	// Check the OTHER player's index, as that's what we're updating, NOT the current player's
+	if(this.state.turn % 2 === 0){
+	    if(this.state.playerTwoIndex + 1 !== this.state.playerTwoScores.length){
+		this.setState({ playerTwoIndex: this.state.playerTwoIndex + 1, turn: this.state.turn + 1, input: "", evalInput: ""})
+	    }
+	} else {
+	    if(this.state.playerOneIndex + 1 !== this.state.playerOneScores.length){
+		this.setState({ playerOneIndex: this.state.playerOneIndex + 1, turn: this.state.turn + 1, input: "", evalInput: ""})
+	    }
+	}
     }
     calculateScore(newInput){
 	let total = null
@@ -75,11 +107,12 @@ class App extends Component {
 	    newScore = this.state.playerTwoScores[this.state.playerTwoIndex] - total
 	}
 	return newScore
-    }	
+    }
     render() {
 	return (
 		<div>
-		<Keypad turn={this.state.turn} input={this.state.input} removeFromInput={this.removeFromInput} appendToInput={this.appendToInput} enterScore={this.enterScore} />
+		<Keypad turn={this.state.turn} input={this.state.input} removeFromInput={this.removeFromInput} appendToInput={this.appendToInput} enterScore={this.enterScore}
+	    undoScore={this.undoScore} redoScore={this.redoScore}/>
 		</div>
 	)
     }

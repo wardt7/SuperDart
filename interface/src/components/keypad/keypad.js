@@ -14,6 +14,10 @@ class Keypad extends Component{
 		<table width="100%">
 		<tbody>
 		<tr>
+		<td colspan="2"><KeyButton clickMethod={this.props.undoScore}>UNDO</KeyButton></td>
+		<td colspan="2"><KeyButton clickMethod={this.props.redoScore}>REDO</KeyButton></td>
+		</tr>
+		<tr>
 		<td colspan="4"><Input turn={this.props.turn}>{this.props.input}</Input></td>
 		</tr>
 		<tr>

@@ -11,24 +11,40 @@
     width: 100%;
 }
 
-.btn-wrapper.green {
+.btn-wrapper.ENT, .btn-wrapper.REDO {
     background-color: #02EB61;
     color: black;
-    height: 8.2em;
 }
 
-.btn-wrapper.green:hover{
+.btn-wrapper.ENT:hover, .btn-wrapper.REDO:hover{
     background-color: #42F477;
 }
 
-.btn-wrapper.red {
+.btn-wrapper.DEL, .btn-wrapper.UNDO {
     background-color: #EB0202;
     color: white;
+}
+
+.btn-wrapper.DEL:hover, .btn-wrapper.UNDO:hover{
+    background-color: #FF2D2D;
+}
+
+.btn-wrapper.ENT, .btn-wrapper.DEL{
     height: 8.2em;
 }
 
-.btn-wrapper.red:hover{
-    background-color: #FF2D2D;
+.btn-wrapper.UNDO, .btn-wrapper.REDO{
+    width: 50%;
+    margin-bottom: 0.75em;
+    margin-top: 0.75em;
+}
+
+.btn-wrapper.UNDO{
+    margin-left: 50%;
+}
+
+.btn-wrapper.REDO{
+    margin-right: 50%;
 }
 
 .btn-wrapper.playerone {

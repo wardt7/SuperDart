@@ -14,10 +14,14 @@ class KeyButton extends Component{
     render(){
 	let name = ""
 	if(this.props.children === "ENT"){
-	    name = "green"
+	    name = "ENT"
 	}
 	else if (this.props.children === "DEL"){
-	    name = "red"
+	    name = "DEL"
+	} else if (this.props.children === "UNDO"){
+	    name = "UNDO"
+	} else if (this.props.children === "REDO"){
+	    name = "REDO"
 	} else if (this.props.turn % 2 === 0){
 	    name = "playerone"
 	} else {
