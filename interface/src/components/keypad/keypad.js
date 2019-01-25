@@ -14,8 +14,8 @@ class Keypad extends Component{
 		<table width="100%">
 		<tbody>
 		<tr>
-		<td colspan="2"><KeyButton clickMethod={this.props.undoScore}>UNDO</KeyButton></td>
-		<td colspan="2"><KeyButton clickMethod={this.props.redoScore}>REDO</KeyButton></td>
+		<td colspan="2"><KeyButton clickMethod={this.props.undoScore} disabled={this.props.checkUndoDisabled()}>UNDO</KeyButton></td>
+		<td colspan="2"><KeyButton clickMethod={this.props.redoScore} disabled={this.props.checkRedoDisabled()}>REDO</KeyButton></td>
 		</tr>
 		<tr>
 		<td colspan="4"><Input turn={this.props.turn}>{this.props.input}</Input></td>
@@ -24,7 +24,7 @@ class Keypad extends Component{
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>7</KeyButton></td>
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>8</KeyButton></td>
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>9</KeyButton></td>
-		<td rowSpan="2"><KeyButton clickMethod={this.props.removeFromInput}>DEL</KeyButton></td>
+		<td rowSpan="2"><KeyButton clickMethod={this.props.removeFromInput} disabled={this.props.checkDeleteDisabled()}>DEL</KeyButton></td>
 		</tr>
 		<tr>
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>4</KeyButton></td>

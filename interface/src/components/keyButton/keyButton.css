@@ -16,17 +16,22 @@
     color: black;
 }
 
-.btn-wrapper.ENT:hover, .btn-wrapper.REDO:hover{
+.btn-wrapper.ENT:hover:not(.disabled), .btn-wrapper.REDO:hover:not(.disabled){
     background-color: #42F477;
 }
 
-.btn-wrapper.DEL, .btn-wrapper.UNDO {
+.btn-wrapper.DEL, .btn-wrapper.UNDO{
     background-color: #EB0202;
     color: white;
 }
 
-.btn-wrapper.DEL:hover, .btn-wrapper.UNDO:hover{
+.btn-wrapper.DEL:hover:not(.disabled), .btn-wrapper.UNDO:hover:not(.disabled){
     background-color: #FF2D2D;
+}
+
+.btn-wrapper.disabled{
+    background-color: #C0C0C0;
+    color: white;
 }
 
 .btn-wrapper.ENT, .btn-wrapper.DEL{

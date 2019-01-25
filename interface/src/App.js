@@ -21,6 +21,9 @@ class App extends Component {
 	this.undoScore = this.undoScore.bind(this)
 	this.redoScore = this.redoScore.bind(this)
 	this.calculateScore = this.calculateScore.bind(this)
+	this.checkUndoDisabled = this.checkUndoDisabled.bind(this)
+	this.checkRedoDisabled = this.checkRedoDisabled.bind(this)
+	this.checkDeleteDisabled = this.checkDeleteDisabled.bind(this)
     }
     appendToInput(value){
 	let newInput = this.state.input
@@ -82,14 +85,14 @@ class App extends Component {
 	}
     }
     redoScore(){
-	// Check the OTHER player's index, as that's what we're updating, NOT the current player's
+	// Check the CURRENT player's index, as that's what we're updating
 	if(this.state.turn % 2 === 0){
-	    if(this.state.playerTwoIndex + 1 !== this.state.playerTwoScores.length){
-		this.setState({ playerTwoIndex: this.state.playerTwoIndex + 1, turn: this.state.turn + 1, input: "", evalInput: ""})
+	    if(this.state.playerOneIndex + 1 < this.state.playerOneScores.length){
+		this.setState({ playerOneIndex: this.state.playerOneIndex + 1, turn: this.state.turn + 1, input: "", evalInput: ""})
 	    }
 	} else {
-	    if(this.state.playerOneIndex + 1 !== this.state.playerOneScores.length){
-		this.setState({ playerOneIndex: this.state.playerOneIndex + 1, turn: this.state.turn + 1, input: "", evalInput: ""})
+	    if(this.state.playerTwoIndex + 1 < this.state.playerTwoScores.length){
+		this.setState({ playerTwoIndex: this.state.playerTwoIndex + 1, turn: this.state.turn + 1, input: "", evalInput: ""})
 	    }
 	}
     }
@@ -108,11 +111,38 @@ class App extends Component {
 	}
 	return newScore
     }
+    checkUndoDisabled(){
+	// true if disabled
+	if(this.state.turn < 1){
+	    return true
+	}
+	return false
+    }
+    checkRedoDisabled(){
+	// true if disabled
+	if(this.state.turn % 2 === 0){
+	    if(this.state.playerOneIndex + 1 < this.state.playerOneScores.length){
+		return false
+	    }
+	} else {
+	    if(this.state.playerTwoIndex + 1 < this.state.playerTwoScores.length){
+		return false
+	    }
+	}
+	return true
+    }
+    checkDeleteDisabled(){
+	// true if disabled
+	if(this.state.input === ""){
+	    return true
+	}
+	return false
+    }
     render() {
 	return (
 		<div>
 		<Keypad turn={this.state.turn} input={this.state.input} removeFromInput={this.removeFromInput} appendToInput={this.appendToInput} enterScore={this.enterScore}
-	    undoScore={this.undoScore} redoScore={this.redoScore}/>
+	    undoScore={this.undoScore} redoScore={this.redoScore} checkUndoDisabled={this.checkUndoDisabled} checkRedoDisabled={this.checkRedoDisabled} checkDeleteDisabled={this.checkDeleteDisabled}/>
 		</div>
 	)
     }

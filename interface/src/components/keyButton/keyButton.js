@@ -9,14 +9,15 @@ class KeyButton extends Component{
     handleButtonClick(event){
 	event.stopPropagation()
 	console.log(this.props)
-	this.props.clickMethod(this.props.children)
+	if(!this.props.disabled){
+	    this.props.clickMethod(this.props.children)
+	}
     }
     render(){
 	let name = ""
 	if(this.props.children === "ENT"){
 	    name = "ENT"
-	}
-	else if (this.props.children === "DEL"){
+	} else if (this.props.children === "DEL"){
 	    name = "DEL"
 	} else if (this.props.children === "UNDO"){
 	    name = "UNDO"
@@ -26,6 +27,9 @@ class KeyButton extends Component{
 	    name = "playerone"
 	} else {
 	    name = "playertwo"
+	}
+	if(this.props.disabled){
+	    name += " disabled"
 	}
 	return (
 		<div onClick={this.handleButtonClick} className={`btn-wrapper ${name}`}>
