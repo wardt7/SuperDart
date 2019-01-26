@@ -1,17 +1,15 @@
 .input {
     display: flex;
-    margin: 0;
     padding-left: 0.5em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
     justify-content: left;
     align-items: center;
-    font-weight: boldr;
-    font-size: 3.5em;
+    font-weight: bolder;
+    font-size: 3em;
     outline: 1px solid #888;
     flex: 1 1 0;
     width: 100%;
-    min-height: 2.25em;
+    height: 100%;
+    min-height: 1.2em;
     -webkit-transition-property: background-color;
     -webkit-transition-duration: 0.75s;
     -webkit-transition-timing-function: ease;

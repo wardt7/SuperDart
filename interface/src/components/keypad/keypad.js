@@ -24,7 +24,7 @@ class Keypad extends Component{
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>7</KeyButton></td>
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>8</KeyButton></td>
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>9</KeyButton></td>
-		<td rowSpan="2"><KeyButton clickMethod={this.props.removeFromInput} disabled={this.props.checkDeleteDisabled()}>DEL</KeyButton></td>
+		<td rowSpan="2" className="double"><KeyButton clickMethod={this.props.removeFromInput} disabled={this.props.checkDeleteDisabled()}>DEL</KeyButton></td>
 		</tr>
 		<tr>
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>4</KeyButton></td>
@@ -35,7 +35,7 @@ class Keypad extends Component{
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>1</KeyButton></td>
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>2</KeyButton></td>
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>3</KeyButton></td>
-		<td rowSpan="2"><KeyButton clickMethod={this.props.enterScore}>ENT</KeyButton></td>
+		<td rowSpan="2" className="double"><KeyButton clickMethod={this.props.enterScore}>ENT</KeyButton></td>
 		</tr>
 		<tr>
 		<td><KeyButton turn={this.props.turn} clickMethod={this.props.appendToInput}>0</KeyButton></td>

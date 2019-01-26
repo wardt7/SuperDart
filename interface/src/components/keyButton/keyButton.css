@@ -1,14 +1,15 @@
 .btn-wrapper {
-    height: 4em;
+    height: 100%;
+    overflow: auto;
     display: flex;
     margin: 0;
     justify-content: center;
     align-items: center;
-    font-weight: lighter;
+    font-weight: bolder;
     font-size: 1.8em;
     outline: 1px solid #888;
-    flex: 1 1 0;
     width: 100%;
+    flex: 1 1 0;
 }
 
 .btn-wrapper:not(:hover), .btn-wrapper.disabled:hover{
@@ -39,19 +40,17 @@
     background-color: #FF2D2D;
 }
 
+.btn-wrapper.DEL, .btn-wrapper.ENT{
+    height: 200%;
+}
+
 .btn-wrapper.disabled{
     background-color: #C0C0C0;
     color: white;
 }
 
-.btn-wrapper.ENT, .btn-wrapper.DEL{
-    height: 8.2em;
-}
-
 .btn-wrapper.UNDO, .btn-wrapper.REDO{
     width: 50%;
-    margin-bottom: 0.75em;
-    margin-top: 0.75em;
 }
 
 .btn-wrapper.UNDO{
