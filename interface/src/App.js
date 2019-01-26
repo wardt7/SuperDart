@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import Keypad from './components/keypad/keypad'
+import Player from './components/player/player'
 
 class App extends Component {
     constructor(props){
@@ -24,6 +25,7 @@ class App extends Component {
 	this.checkUndoDisabled = this.checkUndoDisabled.bind(this)
 	this.checkRedoDisabled = this.checkRedoDisabled.bind(this)
 	this.checkDeleteDisabled = this.checkDeleteDisabled.bind(this)
+	this.getScore = this.getScore.bind(this)
     }
     appendToInput(value){
 	let newInput = this.state.input
@@ -138,9 +140,26 @@ class App extends Component {
 	}
 	return false
     }
+    getScore(player){
+	let score = 0
+	if(player === "playerone"){
+	    if(this.state.input !== "" && this.state.turn % 2 === 0){
+		return([this.calculateScore(this.state.evalInput), true])
+	    }
+	    score = this.state.playerOneScores[this.state.playerOneIndex]
+	} else {
+	    if(this.state.input !== "" && this.state.turn %2 !== 0){
+		return([this.calculateScore(this.state.evalInput), true])
+	    }
+	    score = this.state.playerTwoScores[this.state.playerTwoIndex]
+	}
+	return([score, false])
+    }
     render() {
 	return (
 		<div>
+		<Player playerName="Player One" playerType="playerone" getScore={this.getScore}/>
+		<Player playerName="Player Two" playerType="playertwo" getScore={this.getScore}/>
 		<Keypad turn={this.state.turn} input={this.state.input} removeFromInput={this.removeFromInput} appendToInput={this.appendToInput} enterScore={this.enterScore}
 	    undoScore={this.undoScore} redoScore={this.redoScore} checkUndoDisabled={this.checkUndoDisabled} checkRedoDisabled={this.checkRedoDisabled} checkDeleteDisabled={this.checkDeleteDisabled}/>
 		</div>

@@ -1,0 +1,48 @@
+.player {
+    width: 50%;
+    float: left;
+}
+
+.player.playerone{
+    background-color: #FE9241;
+}
+
+.player.playertwo{
+    background-color: #42A7F4;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 3.5em;
+    padding-bottom: 0.1em;
+    width: 100%;
+}
+
+h2.playerone {
+    background-color: #ED7728;
+}
+
+h2.playertwo{
+    background-color: #0273EB;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 10em;
+    -webkit-transition-property: color;
+    -webkit-transition-duration: 0.75s;
+    -webkit-transition-timing-function: ease;
+    transition-property: color;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
+}
+
+h1.altered {
+    color: #DF0101;
+}
+
+.nameplate.playerone {
+    
+}
