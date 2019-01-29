@@ -54,9 +54,8 @@ class App extends Component {
 	console.log(newInput)
     }
     enterScore(){
-	let calculatedScore = this.calculateScore(this.state.evalInput)
+	let calculatedScore = this.calculateScore(this.state.evalInput, true)
 	if(calculatedScore[1] !== false){
-	    toast.error(calculatedScore[1])
 	    return false
 	}
 	let score = calculatedScore[0]
@@ -104,7 +103,7 @@ class App extends Component {
 	    }
 	}
     }
-    calculateScore(newInput){
+    calculateScore(newInput, entry = false){
 	let total = null
 	let invalid = false
 	if(newInput.slice(-1) === "+" || newInput.slice(-1) === "*"){
@@ -116,12 +115,20 @@ class App extends Component {
 	    total = 0
 	}
 	if(isNaN(total)){
-	    toast.warning("Check your input, it's invalid!")
-	    return ["ERROR", "Could not save score; The input was invalid in some way (e.g. multiple adjacent operators)!"]
+	    if(entry){
+		toast.error("Could not save score; The input was invalid in some way (e.g. multiple adjacent operators)!")
+	    } else {
+		toast.warning("Check your input, it's invalid!")
+	    }
+	    return ["ERROR", true]
 	}
 	if(total > 180){
-	    toast.warning("The current score is more than 180; will not be able to save!")
-	    invalid = "Could not save score; The entered score is more than 180!"
+	    if(entry){
+		toast.error("Could not save score; The entered score is more than 180!")
+	    } else {
+		toast.warning("The current score is more than 180; will not be able to save!")
+	    }
+	    invalid = true
 	}
 	let newScore = 0
 	if(this.state.turn % 2 === 0){
@@ -130,8 +137,12 @@ class App extends Component {
 	    newScore = this.state.playerTwoScores[this.state.playerTwoIndex] - total
 	}
 	if(newScore < 0){
-	    toast.warning("The score entered is bust; will not be able to save!")
-	    invalid = "Could not save score. The entered score is bust!"
+	    if(entry){
+		toast.error("Could not save score. The entered score is bust!")
+	    } else {
+		toast.warning("The score entered is bust; will not be able to save!")
+	    }
+	    invalid = true
 	}
 	return [newScore, invalid]
     }
