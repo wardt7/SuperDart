@@ -14,8 +14,8 @@ class Keypad extends Component{
 		<table width="100%">
 		<tbody>
 		<tr>
-		<td colspan="2"><KeyButton clickMethod={this.props.undoScore} disabled={this.props.checkUndoDisabled()}>UNDO</KeyButton></td>
-		<td colspan="2"><KeyButton clickMethod={this.props.redoScore} disabled={this.props.checkRedoDisabled()}>REDO</KeyButton></td>
+		<td colspan="2" className="playerone"><KeyButton clickMethod={this.props.undoScore} disabled={this.props.checkUndoDisabled()}>UNDO</KeyButton></td>
+		<td colspan="2" className="playertwo"><KeyButton clickMethod={this.props.redoScore} disabled={this.props.checkRedoDisabled()}>REDO</KeyButton></td>
 		</tr>
 		<tr>
 		<td colspan="4"><Input turn={this.props.turn}>{this.props.input}</Input></td>

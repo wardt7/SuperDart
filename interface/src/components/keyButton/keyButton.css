@@ -7,6 +7,7 @@
     align-items: center;
     font-weight: bolder;
     font-size: 1.8em;
+    /* Controls the border colour for flexbox */
     outline: 1px solid #888;
     width: 100%;
     flex: 1 1 0;
@@ -25,6 +26,7 @@
 .btn-wrapper.ENT, .btn-wrapper.REDO {
     background-color: #02EB61;
     color: black;
+    outline: 1px solid #42F477;
 }
 
 .btn-wrapper.ENT:hover:not(.disabled), .btn-wrapper.REDO:hover:not(.disabled){
@@ -34,6 +36,8 @@
 .btn-wrapper.DEL, .btn-wrapper.UNDO{
     background-color: #EB0202;
     color: white;
+    outline: 1px solid #FF2D2D;
+    
 }
 
 .btn-wrapper.DEL:hover:not(.disabled), .btn-wrapper.UNDO:hover:not(.disabled){
@@ -47,23 +51,19 @@
 .btn-wrapper.disabled{
     background-color: #C0C0C0;
     color: white;
+    outline: 1px solid #888;
 }
 
 .btn-wrapper.UNDO, .btn-wrapper.REDO{
     width: 50%;
-}
-
-.btn-wrapper.UNDO{
-    margin-left: 50%;
-}
-
-.btn-wrapper.REDO{
-    margin-right: 50%;
+    margin-bottom: 4vh;
+    margin-left: 25%;
 }
 
 .btn-wrapper.playerone {
     background-color: #FE9241;
     color: white;
+    outline: 1px solid #ED7728;
 }
 
 .btn-wrapper.playerone:hover{
@@ -73,6 +73,7 @@
 .btn-wrapper.playertwo {
     background-color: #0273EB;
     color: white;
+    outline: 1px solid #42A7F4;
 }
 
 .btn-wrapper.playertwo:hover{
