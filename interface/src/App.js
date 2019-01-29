@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import logo from './logo.svg'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
 import './App.css'
 import Keypad from './components/keypad/keypad'
 import Player from './components/player/player'
@@ -38,7 +39,6 @@ class App extends Component {
 	}
 	this.setState({ input: newInput, evalInput: newEvalInput })
 	// State updates properly only AFTER re-render
-	console.log(this.calculateScore(newEvalInput))
     }
     removeFromInput(){
 	let newInput = this.state.input
@@ -54,7 +54,12 @@ class App extends Component {
 	console.log(newInput)
     }
     enterScore(){
-	let score = this.calculateScore(this.state.evalInput)
+	let calculatedScore = this.calculateScore(this.state.evalInput)
+	if(calculatedScore[1] !== false){
+	    toast.error(calculatedScore[1])
+	    return false
+	}
+	let score = calculatedScore[0]
 	if(this.state.turn % 2 === 0){
 	    let newList = this.state.playerOneScores
 	    if(newList.length === this.state.playerOneIndex + 1){
@@ -73,6 +78,7 @@ class App extends Component {
 	    this.setState({ playerTwoScores: newList, playerTwoIndex: this.state.playerTwoIndex + 1})
 	}
 	this.setState({ input: "", evalInput: "", turn: this.state.turn + 1})
+	return true
     }
     undoScore(){
 	// Check the OTHER player's index, as that's what we're updating, NOT the current player's
@@ -100,10 +106,22 @@ class App extends Component {
     }
     calculateScore(newInput){
 	let total = null
+	let invalid = false
 	if(newInput.slice(-1) === "+" || newInput.slice(-1) === "*"){
 	    total = eval(newInput.slice(0,-1))
 	} else {
 	    total = eval(newInput)
+	}
+	if(newInput === ""){
+	    total = 0
+	}
+	if(isNaN(total)){
+	    toast.warning("Check your input, it's invalid!")
+	    return ["ERROR", "Could not save score; The input was invalid in some way (e.g. multiple adjacent operators)!"]
+	}
+	if(total > 180){
+	    toast.warning("The current score is more than 180; will not be able to save!")
+	    invalid = "Could not save score; The entered score is more than 180!"
 	}
 	let newScore = 0
 	if(this.state.turn % 2 === 0){
@@ -111,7 +129,11 @@ class App extends Component {
 	} else {
 	    newScore = this.state.playerTwoScores[this.state.playerTwoIndex] - total
 	}
-	return newScore
+	if(newScore < 0){
+	    toast.warning("The score entered is bust; will not be able to save!")
+	    invalid = "Could not save score. The entered score is bust!"
+	}
+	return [newScore, invalid]
     }
     checkUndoDisabled(){
 	// true if disabled
@@ -144,12 +166,12 @@ class App extends Component {
 	let score = 0
 	if(player === "playerone"){
 	    if(this.state.input !== "" && this.state.turn % 2 === 0){
-		return([this.calculateScore(this.state.evalInput), true])
+		return([this.calculateScore(this.state.evalInput)[0], true])
 	    }
 	    score = this.state.playerOneScores[this.state.playerOneIndex]
 	} else {
 	    if(this.state.input !== "" && this.state.turn %2 !== 0){
-		return([this.calculateScore(this.state.evalInput), true])
+		return([this.calculateScore(this.state.evalInput)[0], true])
 	    }
 	    score = this.state.playerTwoScores[this.state.playerTwoIndex]
 	}
@@ -162,6 +184,7 @@ class App extends Component {
 		<Player playerName="Player Two" playerType="playertwo" getScore={this.getScore}/>
 		<Keypad turn={this.state.turn} input={this.state.input} removeFromInput={this.removeFromInput} appendToInput={this.appendToInput} enterScore={this.enterScore}
 	    undoScore={this.undoScore} redoScore={this.redoScore} checkUndoDisabled={this.checkUndoDisabled} checkRedoDisabled={this.checkRedoDisabled} checkDeleteDisabled={this.checkDeleteDisabled}/>
+		<ToastContainer position="top-center" />
 		</div>
 	)
     }
