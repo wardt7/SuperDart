@@ -27,6 +27,7 @@ class App extends Component {
 	this.checkRedoDisabled = this.checkRedoDisabled.bind(this)
 	this.checkDeleteDisabled = this.checkDeleteDisabled.bind(this)
 	this.getScore = this.getScore.bind(this)
+	this.checkWin = this.checkWin.bind(this)
     }
     appendToInput(value){
 	let newInput = this.state.input
@@ -190,7 +191,22 @@ class App extends Component {
 	}
 	return([score, false])
     }
+    checkWin(){
+	let reset = false
+	if(this.state.playerOneScores[this.state.playerOneIndex] === 0){
+	    toast.success("Player One wins! Resetting scoreboard...")
+	    reset = true
+	}
+	if(this.state.playerTwoScores[this.state.playerTwoIndex] === 0){
+	    toast.success("Player Two wins! Resetting scoreboard...")
+	    reset = true
+	}
+	if(reset){
+	    this.setState({turn: 0, playerOneScores: [501], playerTwoScores: [501], playerOneIndex: 0, playerTwoIndex: 0, input: "", evalInput: ""})
+	}
+    }
     render() {
+	this.checkWin()  
 	return (
 		<div>
 		<Player playerName="Player One" playerType="playerone" getScore={this.getScore}/>
