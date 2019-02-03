@@ -177,12 +177,14 @@ class App extends Component {
 	let score = 0
 	if(player === "playerone"){
 	    if(this.state.input !== "" && this.state.turn % 2 === 0){
-		return([this.calculateScore(this.state.evalInput)[0], true])
+		score = this.calculateScore(this.state.evalInput)
+		return([score[0], true, score[1]])
 	    }
 	    score = this.state.playerOneScores[this.state.playerOneIndex]
 	} else {
 	    if(this.state.input !== "" && this.state.turn %2 !== 0){
-		return([this.calculateScore(this.state.evalInput)[0], true])
+		score = this.calculateScore(this.state.evalInput)
+		return([score[0], true, score[1]])
 	    }
 	    score = this.state.playerTwoScores[this.state.playerTwoIndex]
 	}

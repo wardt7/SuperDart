@@ -38,10 +38,20 @@ h1 {
     transition-property: color;
     transition-duration: 0.75s;
     transition-timing-function: ease;
+    /* Outline effect for text */
+    text-shadow:
+    -1px -1px 0 white,
+    1px -1px 0 white,
+    -1px 1px 0 white,
+    1px 1px 0 white;
 }
 
-h1.altered {
+h1.bad {
     color: #DF0101;
+}
+
+h1.good {
+    color: #00600f;
 }
 
 .nameplate.playerone {

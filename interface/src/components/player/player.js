@@ -10,7 +10,11 @@ class Player extends Component{
 	let score = this.props.getScore(playerType)
 	let altered = ""
 	if(score[1]){
-	    altered = "altered"
+	    if(score[2]){
+		altered = "bad"
+	    } else {
+		altered = "good"
+	    }
 	}
 	return (
 		<div className={`player ${playerType}`}>
