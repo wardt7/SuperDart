@@ -20,9 +20,19 @@ class KeyButton extends Component{
 	} else if (this.props.children === "DEL"){
 	    name = "DEL"
 	} else if (this.props.children === "UNDO"){
-	    name = "UNDO"
+	    // Set colour to that of previous player
+	    if(this.props.turn % 2 === 0){
+		name = "UNDO playertwo"
+	    } else {
+		name = "UNDO playerone"
+	    }
 	} else if (this.props.children === "REDO"){
-	    name = "REDO"
+	    // Set colour to that of "next" player"
+	    if(this.props.turn % 2 === 0){
+		name = "REDO playerone"
+	    } else {
+		name = "REDO playertwo"
+	    }
 	} else if (this.props.turn % 2 === 0){
 	    name = "playerone"
 	} else {

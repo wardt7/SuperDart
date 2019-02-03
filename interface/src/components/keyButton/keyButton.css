@@ -23,32 +23,26 @@
     transition-timing-function: ease;
 }
 
-.btn-wrapper.ENT, .btn-wrapper.REDO {
+.btn-wrapper.ENT{
     background-color: #00C853;
     color: black;
 }
 
-.btn-wrapper.ENT:hover:not(.disabled), .btn-wrapper.REDO:hover:not(.disabled){
+.btn-wrapper.ENT:hover:not(.disabled){
     background-color: #5EFC82;
 }
 
-.btn-wrapper.DEL, .btn-wrapper.UNDO{
+.btn-wrapper.DEL{
     background-color: #DF0101;
     color: white;
 }
 
-.btn-wrapper.DEL:hover:not(.disabled), .btn-wrapper.UNDO:hover:not(.disabled){
+.btn-wrapper.DEL:hover:not(.disabled){
     background-color: #DD2E2E;
 }
 
 .btn-wrapper.DEL, .btn-wrapper.ENT{
     height: 200%;
-}
-
-.btn-wrapper.disabled{
-    background-color: #C0C0C0;
-    color: white;
-    outline: 1px solid #888;
 }
 
 .btn-wrapper.UNDO, .btn-wrapper.REDO{
@@ -63,7 +57,11 @@
     outline: 1px solid #ED7728;
 }
 
-.btn-wrapper.playerone:hover{
+.btn-wrapper.playerone.UNDO, .btn-wrapper.playerone.REDO {
+    outline: 5px solid #ED7728;
+}
+
+.btn-wrapper.playerone:hover:not(.disabled){
     background-color: #ED7728;
 }
 
@@ -73,7 +71,21 @@
     outline: 1px solid #0273EB;
 }
 
-.btn-wrapper.playertwo:hover{
+.btn-wrapper.playertwo.UNDO, .btn-wrapper.playertwo.REDO {
+    outline: 5px solid #0273EB;
+}
+
+.btn-wrapper.playertwo:hover:not(.disabled){
     background-color: #0273EB;
+}
+
+.btn-wrapper.disabled{
+    background-color: #C0C0C0;
+    color: white;
+    outline: 1px solid #888;
+}
+
+.btn-wrapper.disabled.UNDO, .btn-wrapper.disabled.REDO {
+    outline: 5px solid #888;
 }
 
