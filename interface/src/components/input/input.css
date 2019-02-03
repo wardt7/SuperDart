@@ -21,11 +21,11 @@
 .input.playerone {
     background-color: #ED7728;
     color: white;
-    outline: 1px solid #FE9241;
+    outline: 1px solid #ED7728
 }
 
 .input.playertwo {
-    background-color: #42A7F4;
+    background-color: #0273EB;
     color: white;
     outline: 1px solid #0273EB;
 }

@@ -8,7 +8,7 @@
     font-weight: bolder;
     font-size: 1.8em;
     /* Controls the border colour for flexbox */
-    outline: 1px solid #888;
+    outline: 0;
     width: 100%;
     flex: 1 1 0;
 }
@@ -24,24 +24,21 @@
 }
 
 .btn-wrapper.ENT, .btn-wrapper.REDO {
-    background-color: #02EB61;
+    background-color: #00C853;
     color: black;
-    outline: 1px solid #42F477;
 }
 
 .btn-wrapper.ENT:hover:not(.disabled), .btn-wrapper.REDO:hover:not(.disabled){
-    background-color: #42F477;
+    background-color: #5EFC82;
 }
 
 .btn-wrapper.DEL, .btn-wrapper.UNDO{
-    background-color: #EB0202;
+    background-color: #DF0101;
     color: white;
-    outline: 1px solid #FF2D2D;
-    
 }
 
 .btn-wrapper.DEL:hover:not(.disabled), .btn-wrapper.UNDO:hover:not(.disabled){
-    background-color: #FF2D2D;
+    background-color: #DD2E2E;
 }
 
 .btn-wrapper.DEL, .btn-wrapper.ENT{
@@ -71,12 +68,12 @@
 }
 
 .btn-wrapper.playertwo {
-    background-color: #0273EB;
+    background-color: #42A7F4;
     color: white;
-    outline: 1px solid #42A7F4;
+    outline: 1px solid #0273EB;
 }
 
 .btn-wrapper.playertwo:hover{
-    background-color: #42A7F4;
+    background-color: #0273EB;
 }
 
