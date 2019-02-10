@@ -15,11 +15,15 @@ class KeyButton extends Component{
     }
     render(){
 	let name = ""
+	let buttonText = ""
 	if(this.props.children === "ENT"){
 	    name = "ENT"
+	    buttonText = "ER SCORE"
 	} else if (this.props.children === "DEL"){
 	    name = "DEL"
+	    buttonText = "ETE"
 	} else if (this.props.children === "UNDO"){
+	    buttonText = " LAST SCORE"
 	    // Set colour to that of previous player
 	    if(this.props.turn % 2 === 0){
 		name = "UNDO playertwo"
@@ -27,6 +31,7 @@ class KeyButton extends Component{
 		name = "UNDO playerone"
 	    }
 	} else if (this.props.children === "REDO"){
+	    buttonText = " SCORE"
 	    // Set colour to that of "next" player"
 	    if(this.props.turn % 2 === 0){
 		name = "REDO playerone"
@@ -43,7 +48,7 @@ class KeyButton extends Component{
 	}
 	return (
 		<div onClick={this.handleButtonClick} className={`btn-wrapper ${name}`}>
-		{this.props.children}
+		{this.props.children}{buttonText}
 	    </div>
 	)
     }

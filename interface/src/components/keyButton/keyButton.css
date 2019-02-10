@@ -24,21 +24,21 @@
 }
 
 .btn-wrapper.ENT{
-    background-color: #00C853;
+    background-color: #26ED58;
     color: black;
 }
 
 .btn-wrapper.ENT:hover:not(.disabled){
-    background-color: #5EFC82;
+    background-color: #0FBD3B;
 }
 
 .btn-wrapper.DEL{
-    background-color: #DF0101;
+    background-color: #EE2B2B;
     color: white;
 }
 
 .btn-wrapper.DEL:hover:not(.disabled){
-    background-color: #DD2E2E;
+    background-color: #BD0F0F;
 }
 
 .btn-wrapper.DEL, .btn-wrapper.ENT{
@@ -66,17 +66,17 @@
 }
 
 .btn-wrapper.playertwo {
-    background-color: #42A7F4;
+    background-color: #43A1FE;
     color: white;
-    outline: 1px solid #0273EB;
+    outline: 1px solid #268AED;
 }
 
 .btn-wrapper.playertwo.UNDO, .btn-wrapper.playertwo.REDO {
-    outline: 5px solid #0273EB;
+    outline: 5px solid #268AED;
 }
 
 .btn-wrapper.playertwo:hover:not(.disabled){
-    background-color: #0273EB;
+    background-color: #268AED;
 }
 
 .btn-wrapper.disabled{

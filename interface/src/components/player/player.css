@@ -9,13 +9,13 @@
 }
 
 .player.playertwo{
-    background-color: #42A7F4;
+    background-color: #43A1FE;
 }
 
 h2 {
     color: white;
     text-align: center;
-    font-size: 3.5em;
+    font-size: 4.5em;
     padding-bottom: 0.1em;
     width: 100%;
 }
@@ -25,13 +25,13 @@ h2.playerone {
 }
 
 h2.playertwo{
-    background-color: #0273EB;
+    background-color: #268AED;
 }
 
 h1 {
     color: white;
     text-align: center;
-    font-size: 10em;
+    font-size: 11em;
     -webkit-transition-property: color;
     -webkit-transition-duration: 0.75s;
     -webkit-transition-timing-function: ease;
@@ -42,9 +42,9 @@ h1 {
 }
 
 h1.bad {
-    color: #DF0101;
+    color: #BD0F0F;
 }
 
 h1.good {
-    color: #00600f;
+    color: #0FBD3B;
 }
