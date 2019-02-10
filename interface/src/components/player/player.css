@@ -15,8 +15,9 @@
 h2 {
     color: white;
     text-align: center;
-    font-size: 4.5em;
-    padding-bottom: 0.1em;
+    font-size: 58.5px;
+    padding-bottom: 5.85px;
+	margin-bottom: -14.6333px;
     width: 100%;
 }
 
@@ -31,7 +32,7 @@ h2.playertwo{
 h1 {
     color: white;
     text-align: center;
-    font-size: 11em;
+    font-size: 143px;
     -webkit-transition-property: color;
     -webkit-transition-duration: 0.75s;
     -webkit-transition-timing-function: ease;
