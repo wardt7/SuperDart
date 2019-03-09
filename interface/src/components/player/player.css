@@ -14,7 +14,7 @@
 
 table.header {
     width: 100%;
-    height: 60px;
+    height: 25%;
 }
 
 td.header {
@@ -24,7 +24,7 @@ td.header {
 h2 {
     color: white;
     text-align: center;
-    font-size: 58.5px;
+    font-size: 3vw;
 }
 
 h2.legs.playerone {
@@ -48,7 +48,7 @@ table.header.playertwo {
 h1 {
     color: white;
     text-align: center;
-    font-size: 143px;
+    font-size: 17vh;
     -webkit-transition-property: color;
     -webkit-transition-duration: 0.75s;
     -webkit-transition-timing-function: ease;
@@ -64,4 +64,14 @@ h1.bad {
 
 h1.good {
     color: #0FBD3B;
+}
+
+@media (orientation:portrait) {
+    h2 {
+	font-size: 4.5vh;
+    }
+
+    h2.legs {
+	font-size: 6vh;
+    }
 }

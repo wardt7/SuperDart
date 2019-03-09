@@ -5,8 +5,9 @@
     margin: 0;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-weight: bolder;
-    font-size: 23.4px;
+    font-size: 1.75vw;
     /* Controls the border colour for flexbox */
     outline: 0;
     width: 100%;
@@ -87,5 +88,11 @@
 
 .btn-wrapper.disabled.UNDO, .btn-wrapper.disabled.REDO {
     outline: 5px solid #888;
+}
+
+@media (orientation: portrait){
+    .btn-wrapper{
+	font-size: 3vh;
+    }
 }
 
