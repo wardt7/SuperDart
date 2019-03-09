@@ -10,6 +10,7 @@ class App extends Component {
 	super(props)
 	this.state = {
 	    turn: 0,
+	    start: 0,
 	    playerOneScores: [501],
 	    playerTwoScores: [501],
 	    playerOneIndex: 0,
@@ -62,7 +63,7 @@ class App extends Component {
 	    return false
 	}
 	let score = calculatedScore[0]
-	if(this.state.turn % 2 === 0){
+	if((this.state.turn+this.state.start) % 2 === 0){
 	    let newList = this.state.playerOneScores
 	    if(newList.length === this.state.playerOneIndex + 1){
 		newList.push(score)
@@ -84,7 +85,7 @@ class App extends Component {
     }
     undoScore(){
 	// Check the OTHER player's index, as that's what we're updating, NOT the current player's
-	if(this.state.turn % 2 === 0){
+	if((this.state.turn+this.state.start) % 2 === 0){
 	    if(this.state.playerTwoIndex > 0){
 		this.setState({ playerTwoIndex: this.state.playerTwoIndex - 1, turn: this.state.turn - 1, input: "", evalInput: ""})
 	    }
@@ -96,7 +97,7 @@ class App extends Component {
     }
     redoScore(){
 	// Check the CURRENT player's index, as that's what we're updating
-	if(this.state.turn % 2 === 0){
+	if((this.state.turn+this.state.start) % 2 === 0){
 	    if(this.state.playerOneIndex + 1 < this.state.playerOneScores.length){
 		this.setState({ playerOneIndex: this.state.playerOneIndex + 1, turn: this.state.turn + 1, input: "", evalInput: ""})
 	    }
@@ -134,7 +135,7 @@ class App extends Component {
 	    invalid = true
 	}
 	let newScore = 0
-	if(this.state.turn % 2 === 0){
+	if((this.state.turn+this.state.start) % 2 === 0){
 	    newScore = this.state.playerOneScores[this.state.playerOneIndex] - total
 	} else {
 	    newScore = this.state.playerTwoScores[this.state.playerTwoIndex] - total
@@ -158,7 +159,7 @@ class App extends Component {
     }
     checkRedoDisabled(){
 	// true if disabled
-	if(this.state.turn % 2 === 0){
+	if((this.state.turn+this.state.start) % 2 === 0){
 	    if(this.state.playerOneIndex + 1 < this.state.playerOneScores.length){
 		return false
 	    }
@@ -179,13 +180,13 @@ class App extends Component {
     getScore(player){
 	let score = 0
 	if(player === "playerone"){
-	    if(this.state.input !== "" && this.state.turn % 2 === 0){
+	    if(this.state.input !== "" && (this.state.turn+this.state.start) % 2 === 0){
 		score = this.calculateScore(this.state.evalInput)
 		return([score[0], true, score[1]])
 	    }
 	    score = this.state.playerOneScores[this.state.playerOneIndex]
 	} else {
-	    if(this.state.input !== "" && this.state.turn %2 !== 0){
+	    if(this.state.input !== "" && (this.state.turn+this.state.start) % 2 !== 0){
 		score = this.calculateScore(this.state.evalInput)
 		return([score[0], true, score[1]])
 	    }
@@ -207,6 +208,11 @@ class App extends Component {
 	}
 	if(reset){
 	    this.setState({turn: 0, playerOneScores: [501], playerTwoScores: [501], playerOneIndex: 0, playerTwoIndex: 0, input: "", evalInput: ""})
+	    if(this.state.start === 0){
+		this.setState({start: 1})
+	    } else {
+		this.setState({start: 0})
+	    }
 	}
     }
     render() {
@@ -215,7 +221,7 @@ class App extends Component {
 		<div>
 		<Player playerName="Player One" playerType="playerone" playerLegs={this.state.playerOneLegs} getScore={this.getScore}/>
 		<Player playerName="Player Two" playerType="playertwo" playerLegs={this.state.playerTwoLegs} getScore={this.getScore}/>
-		<Keypad turn={this.state.turn} input={this.state.input} removeFromInput={this.removeFromInput} appendToInput={this.appendToInput} enterScore={this.enterScore}
+		<Keypad turn={this.state.turn+this.state.start} input={this.state.input} removeFromInput={this.removeFromInput} appendToInput={this.appendToInput} enterScore={this.enterScore}
 	    undoScore={this.undoScore} redoScore={this.redoScore} checkUndoDisabled={this.checkUndoDisabled} checkRedoDisabled={this.checkRedoDisabled} checkDeleteDisabled={this.checkDeleteDisabled}/>
 		<ToastContainer position="top-center" />
 		</div>

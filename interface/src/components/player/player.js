@@ -11,21 +11,25 @@ class Player extends Component{
 	if(playerType === "playerone"){
 	    return (
 		    <table className={`header ${playerType}`}>
+		    <tbody>
 		    <tr>
 		    <td></td>
 		    <td><h2 className={`name ${playerType}`}>{this.props.playerName}</h2></td>
 		    <td><h2 className={`legs ${playerType}`}>{this.props.playerLegs}</h2></td>
 		    </tr>
+		    </tbody>
 		    </table>
 	    )
 	} else {
 	    return (
 		    <table className={`header ${playerType}`}>
+		    <tbody>
 		    <tr>
 		    <td><h2 className={`legs ${playerType}`}>{this.props.playerLegs}</h2></td>
 		    <td><h2 className={`name ${playerType}`}>{this.props.playerName}</h2></td>
 		    <td></td>
 		    </tr>
+		    </tbody>
 		    </table>
 	    )
 	}
