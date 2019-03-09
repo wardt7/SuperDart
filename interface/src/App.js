@@ -14,6 +14,8 @@ class App extends Component {
 	    playerTwoScores: [501],
 	    playerOneIndex: 0,
 	    playerTwoIndex: 0,
+	    playerOneLegs: 0,
+	    playerTwoLegs: 0,
 	    input: "",
 	    evalInput: ""
 	}
@@ -196,10 +198,12 @@ class App extends Component {
 	if(this.state.playerOneScores[this.state.playerOneIndex] === 0){
 	    toast.success("Player One wins! Resetting scoreboard...")
 	    reset = true
+	    this.setState({playerOneLegs: this.state.playerOneLegs + 1})
 	}
 	if(this.state.playerTwoScores[this.state.playerTwoIndex] === 0){
 	    toast.success("Player Two wins! Resetting scoreboard...")
 	    reset = true
+	    this.setState({playerTwoLegs: this.state.playerTwoLegs + 1})
 	}
 	if(reset){
 	    this.setState({turn: 0, playerOneScores: [501], playerTwoScores: [501], playerOneIndex: 0, playerTwoIndex: 0, input: "", evalInput: ""})
@@ -209,8 +213,8 @@ class App extends Component {
 	this.checkWin()  
 	return (
 		<div>
-		<Player playerName="Player One" playerType="playerone" getScore={this.getScore}/>
-		<Player playerName="Player Two" playerType="playertwo" getScore={this.getScore}/>
+		<Player playerName="Player One" playerType="playerone" playerLegs={this.state.playerOneLegs} getScore={this.getScore}/>
+		<Player playerName="Player Two" playerType="playertwo" playerLegs={this.state.playerTwoLegs} getScore={this.getScore}/>
 		<Keypad turn={this.state.turn} input={this.state.input} removeFromInput={this.removeFromInput} appendToInput={this.appendToInput} enterScore={this.enterScore}
 	    undoScore={this.undoScore} redoScore={this.redoScore} checkUndoDisabled={this.checkUndoDisabled} checkRedoDisabled={this.checkRedoDisabled} checkDeleteDisabled={this.checkDeleteDisabled}/>
 		<ToastContainer position="top-center" />

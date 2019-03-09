@@ -4,28 +4,44 @@
     float: left;
 }
 
-.player.playerone{
+.player.playerone {
     background-color: #FE9241;
 }
 
-.player.playertwo{
+.player.playertwo {
     background-color: #43A1FE;
+}
+
+table.header {
+    width: 100%;
+    height: 60px;
+}
+
+td.header {
+    width: 33.3333%;
 }
 
 h2 {
     color: white;
     text-align: center;
     font-size: 58.5px;
-    padding-bottom: 5.85px;
-	margin-bottom: -14.6333px;
-    width: 100%;
 }
 
-h2.playerone {
+h2.legs.playerone {
+    text-align: right;
+    padding-right: 0.25em;
+}
+
+h2.legs.playertwo {
+    text-align: left;
+    padding-left: 0.25em;
+}
+
+table.header.playerone {
     background-color: #ED7728;
 }
 
-h2.playertwo{
+table.header.playertwo {
     background-color: #268AED;
 }
 

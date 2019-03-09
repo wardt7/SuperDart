@@ -4,6 +4,31 @@ import "./player.css"
 class Player extends Component{
     constructor(props){
 	super(props)
+	this.getHeaderOrder = this.getHeaderOrder.bind(this)
+    }
+    getHeaderOrder(){
+	let playerType = this.props.playerType
+	if(playerType === "playerone"){
+	    return (
+		    <table className={`header ${playerType}`}>
+		    <tr>
+		    <td></td>
+		    <td><h2 className={`name ${playerType}`}>{this.props.playerName}</h2></td>
+		    <td><h2 className={`legs ${playerType}`}>{this.props.playerLegs}</h2></td>
+		    </tr>
+		    </table>
+	    )
+	} else {
+	    return (
+		    <table className={`header ${playerType}`}>
+		    <tr>
+		    <td><h2 className={`legs ${playerType}`}>{this.props.playerLegs}</h2></td>
+		    <td><h2 className={`name ${playerType}`}>{this.props.playerName}</h2></td>
+		    <td></td>
+		    </tr>
+		    </table>
+	    )
+	}
     }
     render() {
 	let playerType = this.props.playerType
@@ -18,7 +43,7 @@ class Player extends Component{
 	}
 	return (
 		<div className={`player ${playerType}`}>
-		<h2 className={`${playerType}`}>{this.props.playerName}</h2>
+		{this.getHeaderOrder()}
 		<h1 className={`score ${altered}`}>{score[0]}</h1>
 		</div>
 	)
