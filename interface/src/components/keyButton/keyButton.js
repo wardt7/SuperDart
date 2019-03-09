@@ -8,7 +8,6 @@ class KeyButton extends Component{
     }
     handleButtonClick(event){
 	event.stopPropagation()
-	console.log(this.props)
 	if(!this.props.disabled){
 	    this.props.clickMethod(this.props.children)
 	}

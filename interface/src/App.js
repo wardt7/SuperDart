@@ -50,12 +50,9 @@ class App extends Component {
 	if(newInput.length > 0){
 	    newInput = newInput.slice(0,-1)
 	    newEvalInput = newEvalInput.slice(0,-1)
-	    console.log(this.calculateScore(newEvalInput))
 	} else {
-	    console.log(this.calculateScore("0"))
 	}
 	this.setState({ input: newInput, evalInput: newEvalInput })
-	console.log(newInput)
     }
     enterScore(){
 	let calculatedScore = this.calculateScore(this.state.evalInput, true)
