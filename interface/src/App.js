@@ -4,6 +4,7 @@ import 'react-toastify/dist/ReactToastify.min.css'
 import './App.css'
 import Keypad from './components/keypad/keypad'
 import Player from './components/player/player'
+import Modal from './components/modal/modal'
 
 class App extends Component {
     constructor(props){
@@ -14,11 +15,15 @@ class App extends Component {
 	    playerOneScores: [501],
 	    playerTwoScores: [501],
 	    playerOneIndex: 0,
+	    playerOneColor: "orange",
 	    playerTwoIndex: 0,
 	    playerOneLegs: 0,
 	    playerTwoLegs: 0,
+	    playerTwoColor: "blue",
 	    input: "",
-	    evalInput: ""
+	    evalInput: "",
+	    currentModal: true,
+	    startValue: 501
 	}
 	this.appendToInput = this.appendToInput.bind(this)
 	this.removeFromInput = this.removeFromInput.bind(this)
@@ -30,7 +35,10 @@ class App extends Component {
 	this.checkRedoDisabled = this.checkRedoDisabled.bind(this)
 	this.checkDeleteDisabled = this.checkDeleteDisabled.bind(this)
 	this.getScore = this.getScore.bind(this)
+	this.getColor = this.getColor.bind(this)
 	this.checkWin = this.checkWin.bind(this)
+	this.onModalExitClick = this.onModalExitClick.bind(this)
+	this.onSettingsSubmission = this.onSettingsSubmission.bind(this)
     }
     appendToInput(value){
 	let newInput = this.state.input
@@ -108,7 +116,16 @@ class App extends Component {
 	let total = null
 	let invalid = false
 	if(newInput.slice(-1) === "+" || newInput.slice(-1) === "*"){
-	    total = eval(newInput.slice(0,-1))
+	    try{
+		total = eval(newInput.slice(0,-1))
+	    } catch(err) {
+		if(entry){
+		    toast.error("Could not save score; The input was invalid in some way (e.g. multiple adjacent operators")
+		} else {
+		    toast.warning("Check your input, it's invalid!")
+		}
+		return ["ERR", true]
+	    }
 	} else {
 	    total = eval(newInput)
 	}
@@ -121,7 +138,7 @@ class App extends Component {
 	    } else {
 		toast.warning("Check your input, it's invalid!")
 	    }
-	    return ["ERROR", true]
+	    return ["ERR", true]
 	}
 	if(total > 180){
 	    if(entry){
@@ -191,6 +208,13 @@ class App extends Component {
 	}
 	return([score, false])
     }
+    getColor(player){
+	if(player === "playerone"){
+	    return(this.state.playerOneColor)
+	} else {
+	    return(this.state.playerTwoColor)
+	}
+    }
     checkWin(){
 	let reset = false
 	if(this.state.playerOneScores[this.state.playerOneIndex] === 0){
@@ -204,7 +228,7 @@ class App extends Component {
 	    this.setState({playerTwoLegs: this.state.playerTwoLegs + 1})
 	}
 	if(reset){
-	    this.setState({turn: 0, playerOneScores: [501], playerTwoScores: [501], playerOneIndex: 0, playerTwoIndex: 0, input: "", evalInput: ""})
+	    this.setState({turn: 0, playerOneScores: [this.state.startValue], playerTwoScores: [this.state.startValue], playerOneIndex: 0, playerTwoIndex: 0, input: "", evalInput: ""})
 	    if(this.state.start === 0){
 		this.setState({start: 1})
 	    } else {
@@ -212,14 +236,27 @@ class App extends Component {
 	    }
 	}
     }
+    onModalExitClick(){
+	this.setState({currentModal: false})
+    }
+    onSettingsSubmission(values){
+	let startValue = Number(values.start)
+	this.setState({currentModal: false, playerOneScores: [startValue], playerOneColor: values.playerOneColor, playerTwoScores: [startValue], playerTwoColor: values.playerTwoColor, startValue: startValue})
+	toast.success("Starting game...")
+    }
     render() {
-	this.checkWin()  
+	this.checkWin()
+	let modal = null
+	if(this.state.currentModal){
+	    modal = <Modal onModalExitClick={this.onModalExitClick} onFormSubmission={this.onSettingsSubmission}/>
+	}
 	return (
 		<div>
-		<Player playerName="Player One" playerType="playerone" playerLegs={this.state.playerOneLegs} getScore={this.getScore}/>
-		<Player playerName="Player Two" playerType="playertwo" playerLegs={this.state.playerTwoLegs} getScore={this.getScore}/>
+		{modal}
+		<Player playerName="Player One" playerType="playerone" playerLegs={this.state.playerOneLegs} playerHistory={this.state.playerOneScores} getScore={this.getScore} getColor={this.getColor}/>
+		<Player playerName="Player Two" playerType="playertwo" playerLegs={this.state.playerTwoLegs} playerHistory={this.state.playerTwoScores} getScore={this.getScore} getColor={this.getColor}/>
 		<Keypad turn={this.state.turn+this.state.start} input={this.state.input} removeFromInput={this.removeFromInput} appendToInput={this.appendToInput} enterScore={this.enterScore}
-	    undoScore={this.undoScore} redoScore={this.redoScore} checkUndoDisabled={this.checkUndoDisabled} checkRedoDisabled={this.checkRedoDisabled} checkDeleteDisabled={this.checkDeleteDisabled}/>
+	    undoScore={this.undoScore} redoScore={this.redoScore} checkUndoDisabled={this.checkUndoDisabled} checkRedoDisabled={this.checkRedoDisabled} checkDeleteDisabled={this.checkDeleteDisabled} getColor={this.getColor}/>
 		<ToastContainer position="top-center" />
 		</div>
 	)

@@ -1,0 +1,148 @@
+@import '../../_colors.scss';
+
+.player {
+    width: 50%;
+    height: 30vh;
+    float: left;
+    webkit-transition-property: background-color, color;
+    -webkit-transition-duration: 0.75s;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, color;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
+}
+
+.player.orange {
+    background-color: $primaryOrange;
+}
+
+.player.blue {
+    background-color: $primaryBlue;
+}
+
+.player.pink {
+    background-color: $primaryPink;
+}
+
+table.header {
+    width: 100%;
+    height: 25%;
+    webkit-transition-property: background-color, color;
+    -webkit-transition-duration: 0.75s;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, color;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
+
+}
+
+td.header {
+    width: 33.3333%;
+}
+
+div.history {
+    height: 34vh;
+    width: 12.5%;
+    z-index: 1;
+    text-align: center;
+    overflow: auto;
+    webkit-transition-property: background-color, color;
+    -webkit-transition-duration: 0.75s;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, color;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
+
+}
+
+div.history.orange {
+    background-color: $secondaryOrange;
+}
+
+div.history.blue {
+    background-color: $secondaryBlue;
+}
+
+div.history.pink {
+    background-color: $secondaryPink;
+}
+
+div.history.playerone {
+    float: left;
+    margin-right: -12.5%;
+}
+
+div.history.playertwo {
+    float: right;
+    margin-left: -12.5%;
+}
+
+p {
+    color: white;
+    font-size: 1.25vw;
+    padding-top: 1vh;
+}
+    
+
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 3vw;
+}
+
+h2.legs.playerone {
+    text-align: right;
+    padding-right: 0.25em;
+}
+
+h2.legs.playertwo {
+    text-align: left;
+    padding-left: 0.25em;
+}
+
+table.header.orange {
+    background-color: $secondaryOrange;
+}
+
+table.header.blue {
+    background-color: $secondaryBlue;
+}
+
+table.header.pink {
+    background-color: $secondaryPink;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 17vh;
+    -webkit-transition-property: color;
+    -webkit-transition-duration: 0.75s;
+    -webkit-transition-timing-function: ease;
+    transition-property: color;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
+    -webkit-text-stroke: 2px white;
+}
+
+h1.bad {
+    color: $secondaryRed;
+}
+
+h1.good {
+    color: $secondaryGreen;
+}
+
+@media (orientation:portrait) {
+    h2 {
+	font-size: 4.5vh;
+    }
+
+    h2.legs {
+	font-size: 6vh;
+    }
+
+    h1 {
+	font-size: 16vh;
+    }
+}

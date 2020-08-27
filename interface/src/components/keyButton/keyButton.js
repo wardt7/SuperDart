@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "./keyButton.css"
+import "./keyButton.scss"
 
 class KeyButton extends Component{
     constructor(props){
@@ -25,22 +25,22 @@ class KeyButton extends Component{
 	    buttonText = " LAST SCORE"
 	    // Set colour to that of previous player
 	    if(this.props.turn % 2 === 0){
-		name = "UNDO playertwo"
+		name = `UNDO ${this.props.getColor("playertwo")}`
 	    } else {
-		name = "UNDO playerone"
+		name = `UNDO ${this.props.getColor("playerone")}`
 	    }
 	} else if (this.props.children === "REDO"){
 	    buttonText = " SCORE"
 	    // Set colour to that of "next" player"
 	    if(this.props.turn % 2 === 0){
-		name = "REDO playerone"
+		name = `REDO ${this.props.getColor("playerone")}`
 	    } else {
-		name = "REDO playertwo"
+		name = `REDO ${this.props.getColor("playertwo")}`
 	    }
 	} else if (this.props.turn % 2 === 0){
-	    name = "playerone"
+	    name = `${this.props.getColor("playerone")}`
 	} else {
-	    name = "playertwo"
+	    name = `${this.props.getColor("playertwo")}`
 	}
 	if(this.props.disabled){
 	    name += " disabled"

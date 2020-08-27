@@ -1,0 +1,114 @@
+@import '../../_colors.scss';
+
+.btn-wrapper {
+    height: 11vh;
+    overflow: hidden;
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.75vw;
+    /* Controls the border colour for flexbox */
+    outline: 0;
+    width: 100%;
+    flex: 1 1 0;
+}
+
+.btn-wrapper:not(:hover), .btn-wrapper.disabled:hover{
+    /* Animations are played on colour change except when currently hovering over enabled buttons */
+    -webkit-transition-property: background-color, outline;
+    -webkit-transition-duration: 0.75s;
+    -webkit-transition-timing-function: ease;
+    transition-property: background-color, outline;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
+}
+
+.btn-wrapper.ENT{
+    background-color: $primaryGreen;
+    color: black;
+}
+
+.btn-wrapper.ENT:hover:not(.disabled){
+    background-color: $secondaryGreen;
+}
+
+.btn-wrapper.DEL{
+    background-color: $primaryRed;
+    color: white;
+}
+
+.btn-wrapper.DEL:hover:not(.disabled){
+    background-color: $secondaryRed;
+}
+
+.btn-wrapper.DEL, .btn-wrapper.ENT{
+    height: 22vh;
+}
+
+.btn-wrapper.UNDO, .btn-wrapper.REDO{
+    width: 50%;
+    margin-bottom: 4vh;
+    margin-left: 25%;
+}
+
+.btn-wrapper.orange {
+    background-color: $primaryOrange;
+    color: white;
+    outline: 1px solid $secondaryOrange;
+}
+
+.btn-wrapper.orange.UNDO, .btn-wrapper.orange.REDO {
+    outline: 3px solid $secondaryOrange;
+}
+
+.btn-wrapper.orange:hover:not(.disabled){
+    background-color: $secondaryOrange;
+}
+
+.btn-wrapper.blue {
+    background-color: $primaryBlue;
+    color: white;
+    outline: 1px solid $secondaryBlue;
+}
+
+.btn-wrapper.blue.UNDO, .btn-wrapper.blue.REDO {
+    outline: 3px solid $secondaryBlue;
+}
+
+.btn-wrapper.pink:hover:not(.disabled){
+    background-color: $secondaryPink;
+}
+
+.btn-wrapper.pink {
+    background-color: $primaryPink;
+    color: white;
+    outline: 1px solid $secondaryPink;
+}
+
+.btn-wrapper.pink.UNDO, .btn-wrapper.pink.REDO {
+    outline: 3px solid $secondaryPink;
+}
+
+.btn-wrapper.pink:hover:not(.disabled){
+    background-color: $secondaryPink;
+}
+
+.btn-wrapper.disabled{
+    background-color: $primaryGray;
+    color: white;
+}
+
+.btn-wrapper.disabled.UNDO, .btn-wrapper.disabled.REDO {
+    outline: 3px solid $secondaryGray;
+}
+
+@media (orientation: portrait){
+    .btn-wrapper{
+	font-size: 3vh;
+    }
+}
+
+

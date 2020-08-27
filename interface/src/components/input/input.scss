@@ -1,3 +1,5 @@
+@import '../../_colors.scss';
+
 .input {
     display: flex;
     padding-left: 0.75vw;
@@ -5,7 +7,7 @@
     align-items: center;
     font-weight: bolder;
     font-size: 3vw;
-    outline: 1px solid #888;
+    outline: 1px solid $secondaryGray;
     flex: 1 1 0;
     width: 100%;
     height: 100%;
@@ -18,16 +20,22 @@
     transition-timing-function: ease;
 }
 
-.input.playerone {
-    background-color: #ED7728;
+.input.orange {
+    background-color: $secondaryOrange;
     color: white;
-    outline: 1px solid #ED7728
+    outline: 1px solid $secondaryOrange;
 }
 
-.input.playertwo {
-    background-color: #268AED;
+.input.blue {
+    background-color: $secondaryBlue;
     color: white;
-    outline: 1px solid #268AED;
+    outline: 1px solid $secondaryBlue;
+}
+
+.input.pink {
+    background-color: $secondaryPink;
+    color: white;
+    outline: 1px solid $secondaryPink;
 }
 
 @media (orientation: portrait) {
