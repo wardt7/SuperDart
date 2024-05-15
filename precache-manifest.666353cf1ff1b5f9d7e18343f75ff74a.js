@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "cb595d6e113cce9f8e6f",
-    "url": "/SuperDart/static/css/main.2ead1822.chunk.css"
+    "revision": "4fae5f3f18bdf2c462f1",
+    "url": "/SuperDart/static/css/main.7cc970de.chunk.css"
   },
   {
-    "revision": "cb595d6e113cce9f8e6f",
-    "url": "/SuperDart/static/js/main.cb595d6e.chunk.js"
+    "revision": "4fae5f3f18bdf2c462f1",
+    "url": "/SuperDart/static/js/main.4fae5f3f.chunk.js"
   },
   {
     "revision": "aa1ac40b0b6f43ccac2a",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/SuperDart/static/js/runtime~main.d2766889.js"
   },
   {
-    "revision": "b22c62a354e0aff325e091b1d234ecdf",
+    "revision": "e099e15ea7cb0cfcc749c1b13f3e777a",
     "url": "/SuperDart/index.html"
   }
 ];
