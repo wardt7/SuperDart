@@ -1,5 +1,3 @@
-@import '../../_colors.scss';
-
 .player {
     width: 50%;
     height: 30vh;
@@ -13,15 +11,15 @@
 }
 
 .player.orange {
-    background-color: $primaryOrange;
+    background-color: #FE9241;
 }
 
 .player.blue {
-    background-color: $primaryBlue;
+    background-color: #43A1FE;
 }
 
 .player.pink {
-    background-color: $primaryPink;
+    background-color: #FE43A1;
 }
 
 table.header {
@@ -56,15 +54,15 @@ div.history {
 }
 
 div.history.orange {
-    background-color: $secondaryOrange;
+    background-color: #ED7728;
 }
 
 div.history.blue {
-    background-color: $secondaryBlue;
+    background-color: #268AED;
 }
 
 div.history.pink {
-    background-color: $secondaryPink;
+    background-color: #ED268A;
 }
 
 div.history.playerone {
@@ -101,15 +99,15 @@ h2.legs.playertwo {
 }
 
 table.header.orange {
-    background-color: $secondaryOrange;
+    background-color: #ED7728;
 }
 
 table.header.blue {
-    background-color: $secondaryBlue;
+    background-color: #268AED;
 }
 
 table.header.pink {
-    background-color: $secondaryPink;
+    background-color: #ED268A;
 }
 
 h1 {
@@ -126,11 +124,11 @@ h1 {
 }
 
 h1.bad {
-    color: $secondaryRed;
+    color: #BD0F0F;
 }
 
 h1.good {
-    color: $secondaryGreen;
+    color: #0FBD3B;
 }
 
 @media (orientation:portrait) {

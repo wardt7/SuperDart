@@ -1,5 +1,3 @@
-@import '../../_colors.scss';
-
 .input {
     display: flex;
     padding-left: 0.75vw;
@@ -7,7 +5,7 @@
     align-items: center;
     font-weight: bolder;
     font-size: 3vw;
-    outline: 1px solid $secondaryGray;
+    outline: 1px solid #888;
     flex: 1 1 0;
     width: 100%;
     height: 100%;
@@ -21,21 +19,21 @@
 }
 
 .input.orange {
-    background-color: $secondaryOrange;
+    background-color: #ED7728;
     color: white;
-    outline: 1px solid $secondaryOrange;
+    outline: 1px solid #ED7728;
 }
 
 .input.blue {
-    background-color: $secondaryBlue;
+    background-color: #268AED;
     color: white;
-    outline: 1px solid $secondaryBlue;
+    outline: 1px solid #268AED;
 }
 
 .input.pink {
-    background-color: $secondaryPink;
+    background-color: #ED268A;
     color: white;
-    outline: 1px solid $secondaryPink;
+    outline: 1px solid #ED268A;
 }
 
 @media (orientation: portrait) {

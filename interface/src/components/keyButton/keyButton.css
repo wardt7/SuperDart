@@ -1,5 +1,3 @@
-@import '../../_colors.scss';
-
 .btn-wrapper {
     height: 11vh;
     overflow: hidden;
@@ -27,21 +25,21 @@
 }
 
 .btn-wrapper.ENT{
-    background-color: $primaryGreen;
+    background-color: #26ED58;
     color: black;
 }
 
 .btn-wrapper.ENT:hover:not(.disabled){
-    background-color: $secondaryGreen;
+    background-color: #0FBD3B;
 }
 
 .btn-wrapper.DEL{
-    background-color: $primaryRed;
+    background-color: #EE2B2B;
     color: white;
 }
 
 .btn-wrapper.DEL:hover:not(.disabled){
-    background-color: $secondaryRed;
+    background-color: #BD0F0F;
 }
 
 .btn-wrapper.DEL, .btn-wrapper.ENT{
@@ -55,54 +53,54 @@
 }
 
 .btn-wrapper.orange {
-    background-color: $primaryOrange;
+    background-color: #FE9241;;
     color: white;
-    outline: 1px solid $secondaryOrange;
+    outline: 1px solid #ED7728;
 }
 
 .btn-wrapper.orange.UNDO, .btn-wrapper.orange.REDO {
-    outline: 3px solid $secondaryOrange;
+    outline: 3px solid #ED7728;
 }
 
 .btn-wrapper.orange:hover:not(.disabled){
-    background-color: $secondaryOrange;
+    background-color: #ED7728;
 }
 
 .btn-wrapper.blue {
-    background-color: $primaryBlue;
+    background-color: #43A1FE;
     color: white;
-    outline: 1px solid $secondaryBlue;
+    outline: 1px solid #268AED;
 }
 
 .btn-wrapper.blue.UNDO, .btn-wrapper.blue.REDO {
-    outline: 3px solid $secondaryBlue;
+    outline: 3px solid #268AED;
 }
 
 .btn-wrapper.pink:hover:not(.disabled){
-    background-color: $secondaryPink;
+    background-color: #ED268A;
 }
 
 .btn-wrapper.pink {
-    background-color: $primaryPink;
+    background-color: #FE43A1;
     color: white;
-    outline: 1px solid $secondaryPink;
+    outline: 1px solid #ED268A;
 }
 
 .btn-wrapper.pink.UNDO, .btn-wrapper.pink.REDO {
-    outline: 3px solid $secondaryPink;
+    outline: 3px solid #ED268A;
 }
 
 .btn-wrapper.pink:hover:not(.disabled){
-    background-color: $secondaryPink;
+    background-color: #ED268A;
 }
 
 .btn-wrapper.disabled{
-    background-color: $primaryGray;
+    background-color: #C0C0C0;
     color: white;
 }
 
 .btn-wrapper.disabled.UNDO, .btn-wrapper.disabled.REDO {
-    outline: 3px solid $secondaryGray;
+    outline: 3px solid #888;
 }
 
 @media (orientation: portrait){

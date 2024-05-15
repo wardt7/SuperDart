@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import KeyButton from "../keyButton/keyButton"
 import Input from "../input/input"
-import "./keypad.scss"
+import "./keypad.css"
 
 class Keypad extends Component{
     constructor(props){

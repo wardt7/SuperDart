@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "./keyButton.scss"
+import "./keyButton.css"
 
 class KeyButton extends Component{
     constructor(props){

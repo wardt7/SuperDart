@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import "./player.scss"
+import "./player.css"
 
 class Player extends Component{
     constructor(props){

@@ -1,5 +1,3 @@
-@import "../../_colors.scss";
-
 table {
     width: 100%;
     height: 66vh;
@@ -10,7 +8,7 @@ td {
     width: 25%;
     height: 11vh;
     padding: 0;
-    webkit-transition-property: background-color;
+    -webkit-transition-property: background-color;
     -webkit-transition-duration: 0.75s;
     -webkit-transition-timing-function: ease;
     transition-property: background-color;
@@ -20,15 +18,15 @@ td {
 }
 
 td.orange {
-    background-color: $primaryOrange;
+    background-color: #FE9241;;
 }
 
 td.blue {
-    background-color: $primaryBlue;
+    background-color: #43A1FE;
 }
 
 td.pink {
-    background-color: $primaryPink;
+    background-color: #FE43A1;
 }
 
 
